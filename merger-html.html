@@ -1,0 +1,227 @@
+﻿<script src="https://assets.law360news.com/1339000/1339949/jquery-ui.min.js" defer ></script><script src="https://assets.law360news.com/1339000/1339949/d3.min.js" defer ></script><script src="https://assets.law360news.com/1339000/1339949/jquery.tablesorter.min.js" defer ></script><script src="https://assets.law360news.com/1339000/1339949/jquery.tablesorter.pager.min.js" defer ></script><script src="https://assets.law360news.com/1339000/1339949/widget-pager.min.js" defer ></script>
+<link href="https://assets.law360news.com/1339000/1339949/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<p id="italic-txt">Check out all the merger that have happened this year.</p>
+<br />
+<p id="italic-txt">This database contains all award winners for the awards MVP of the Year, Practice Groups of the Year, Rising Stars and Titans of the Plaintiffs Bar. The oldest of these awards dates to 2010. Awards are displayed in the database with the name of the firm at the time the award was won.</p>
+
+<p id="italic-txt">Post-merger awards are not combined with pre-merger awards in the generated data visualizations. A single award for a firm can be associated with multiple practice tags, so the combined values of each bar in the bar chart can exceed the total number of awards won by the firm. However, no single bar can exceed the total number of awards won by the firm.</p>
+<br />
+<br />
+<br />
+<!-- HTML for search box -->
+<div class="search-box">
+<form id="emit"><input class="search-txt" id="emit_data" placeholder="Person or firm name" type="text" /> <a class="search-btn"> </a></form>
+</div>
+<!-- HTML for dropdown filters -->
+
+<div class="dropdowns">
+<div class="filter filter-button dropdown-award"><button class="dropdown-award-btn">Awards</button>
+
+<div class="dropdown-award-content dropdown" id="dropdown-award-content-id">
+<p class="dropdown-award-item">MVP</p>
+
+<p class="dropdown-award-item">Practice Groups Of The Year</p>
+
+<p class="dropdown-award-item">Rising Stars</p>
+
+<p class="dropdown-award-item">Titans Of The Plaintiffs Bar</p>
+</div>
+</div>
+
+<div class="filter filter-button dropdown-practice"><button class="dropdown-practice-btn">Practice</button>
+
+<div class="dropdown-practice-content dropdown" id="dropdown-practice-content-id"><input class="dropdown-input" id="dropdown-practice-input" placeholder=" Search.." style="font-family:Arial, FontAwesome" type="text" />
+<p class="dropdown-practice-item">Aerospace &amp; Defense</p>
+
+<p class="dropdown-practice-item">Appellate</p>
+
+<p class="dropdown-practice-item">Asset Management</p>
+
+<p class="dropdown-practice-item">Banking</p>
+
+<p class="dropdown-practice-item">Bankruptcy</p>
+
+<p class="dropdown-practice-item">Benefits</p>
+
+<p class="dropdown-practice-item">Cannabis</p>
+
+<p class="dropdown-practice-item">Capital Markets</p>
+
+<p class="dropdown-practice-item">Class Action</p>
+
+<p class="dropdown-practice-item">Competition</p>
+
+<p class="dropdown-practice-item">Compliance</p>
+
+<p class="dropdown-practice-item">Construction</p>
+
+<p class="dropdown-practice-item">Consumer Protection</p>
+
+<p class="dropdown-practice-item">Cybersecurity &amp; Privacy</p>
+
+<p class="dropdown-practice-item">Employment</p>
+
+<p class="dropdown-practice-item">Energy</p>
+
+<p class="dropdown-practice-item">Environmental</p>
+
+<p class="dropdown-practice-item">Fintech</p>
+
+<p class="dropdown-practice-item">Food &amp; Beverage</p>
+
+<p class="dropdown-practice-item">Fund Formation</p>
+
+<p class="dropdown-practice-item">Government Contracts</p>
+
+<p class="dropdown-practice-item">Health</p>
+
+<p class="dropdown-practice-item">Hospitality</p>
+
+<p class="dropdown-practice-item">Immigration</p>
+
+<p class="dropdown-practice-item">Insurance</p>
+
+<p class="dropdown-practice-item">Intellectual Property</p>
+
+<p class="dropdown-practice-item">International Arbitration</p>
+
+<p class="dropdown-practice-item">International Trade</p>
+
+<p class="dropdown-practice-item">Life Sciences</p>
+
+<p class="dropdown-practice-item">Media &amp; Entertainment</p>
+
+<p class="dropdown-practice-item">Mergers &amp; Acquisitions</p>
+
+<p class="dropdown-practice-item">Native American</p>
+
+<p class="dropdown-practice-item">Personal Injury &amp; Medical Malpractice</p>
+
+<p class="dropdown-practice-item">Private Equity</p>
+
+<p class="dropdown-practice-item">Product Liability</p>
+
+<p class="dropdown-practice-item">Project Finance</p>
+
+<p class="dropdown-practice-item">Real Estate</p>
+
+<p class="dropdown-practice-item">Retail &amp; E-Commerce</p>
+
+<p class="dropdown-practice-item">Securities</p>
+
+<p class="dropdown-practice-item">Sports &amp; Betting</p>
+
+<p class="dropdown-practice-item">Structured Finance</p>
+
+<p class="dropdown-practice-item">Tax</p>
+
+<p class="dropdown-practice-item">Technology</p>
+
+<p class="dropdown-practice-item">Telecommunications</p>
+
+<p class="dropdown-practice-item">Transportation</p>
+
+<p class="dropdown-practice-item">Trials</p>
+
+<p class="dropdown-practice-item">White Collar</p>
+</div>
+</div>
+<!-- HTML for date slider -->
+
+<div class="filter filter-slider slider-container">
+<p class="slider-label">Date Range</p>
+
+<div class="flat-slider" id="slider-range"><br />
+</div>
+
+<div id="min"><br />
+</div>
+
+<div id="max"><br />
+</div>
+</div>
+<!-- HTML for clear all button -->
+
+<div class="filter filter-button clear-container"><button class="clear-all-btn">Clear All Filters</button></div>
+</div>
+
+<div class="filter-bank">
+<div>
+<h1 class="filter-bank-title" id="filter-bank-title">Chosen Filters</h1>
+</div>
+
+<div class="filter-bank-content" id="filter-bank-content"><br />
+</div>
+</div>
+<!-- HTML for data table -->
+
+<div class="tablesorter" id="data-table">
+<table align="center" class="table" id="table-content" role="grid">
+	<thead>
+		<tr id="header">
+			<th>Report Date</th>
+			<th>Firm 1</th>
+			<th>Location</th>
+			<th>Size</th>
+			<th>Firm 2</th>
+			<th>Location</th>
+			<th>Size</th>
+			<th>Merge Date</th>
+		</tr>
+	</thead>
+	<tbody id="table-content-inner">
+		<tr id="data-load">
+			<td><br />
+			</td>
+			<td><br />
+			</td>
+			<td style="text-align: center">The database is loading. Please wait...</td>
+			<td><br />
+			</td>
+			<td><br />
+			</td>
+		</tr>
+	</tbody>
+	<tfoot colspan="8" id="footer"><!-- <td><br />
+        </td> -->
+		<tr>
+			<td colspan="8"><!-- HTML for pagination menu -->
+			<div class="pager"><img class="first" src="https://assets.law360news.com/1339000/1339949/step-backward-solid.png" style="height:15px; width:15px;" /> <img class="prev" src="https://assets.law360news.com/1339000/1339949/backward-solid.png" style="height:15px; width:15px;" /> <img class="next" src="https://assets.law360news.com/1339000/1339949/forward-solid.png" style="height:15px; width:15px;" /> <img class="last" src="https://assets.law360news.com/1339000/1339949/step-forward-solid.png" style="height:15px; width:15px;" />
+			<div><select class="pagesize" title="Select page size"><option selected="selected" value="10">10</option><option value="20">20</option><option value="30">30</option> <!-- <option value="all">All</option> --> </select> <select class="gotoPage" title="Select page number"></select></div>
+			</div>
+			</td>
+			<!-- <td><br />
+        </td> -->
+		</tr>
+	</tfoot>
+</table>
+</div>
+<br />
+<br />
+<div class="firm-headline">
+<h2 id="firm-headline-H2">Graphs &amp; Charts</h2>
+
+<p>Choose a firm from the dropdown menu to create data visualizations for that firm.</p>
+</div>
+
+<div class="dropdown-firm-container">
+<div class="dropdown-firm"><button class="dropdown-firm-btn">Choose a Law Firm</button>
+
+<div class="dropdown-firm-content" id="dropdown-firm-content-id"><input class="dropdown-input" id="dropdown-firm-input" placeholder=" Search.." style="font-family:Arial, FontAwesome" type="text" /></div>
+</div>
+</div>
+<br />
+<div class="chart-wrapper line-wrapper">
+<div class="title"><br />
+</div>
+<svg class="line-chart"></svg></div>
+<br />
+<div class="chart-wrapper bar-wrapper">
+<div class="title"><br />
+</div>
+<svg class="bar-chart"></svg></div>
+
+<div class="line-tooltip"><br />
+</div>
+<!-- All Body JavaScript --><script src="https://assets.law360news.com/1417000/1417316/test7.js" defer >
+</script>
